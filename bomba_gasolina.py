@@ -56,7 +56,7 @@ class BombaGasolina:
       self.__quantidade_disponivel = (self.__quantidade_disponivel - (valor/self.__valor_litro))
       self.__quantidade_vendida += (valor/self.__valor_litro)
       self.__valor_faturado += valor
-      print(f'A quantidade disponível é de {self.__quantidade_disponivel}L')
+      print(f'Foi colocado {valor/self.__valor_litro} Litros')
 
   
   def abastecerVeiculoPorLitro(self, valor):
@@ -67,7 +67,7 @@ class BombaGasolina:
         self.__quantidade_disponivel -= valor
         self.__valor_faturado += valor*self.__valor_litro
         self.__quantidade_vendida += valor
-        print(f'A quantidade de combustível disponivel é de {self.__quantidade_disponivel}L')
+        print(f'O valor a ser pago é de R${valor*self.__valor_litro}.')
     
 
   def __str__(self):
@@ -89,7 +89,7 @@ bomba1.abastecerVeiculoPorLitro(30)
 bomba1.abastecerVeiculoPorValor(130)
 bomba1.valor_litro = 10
 bomba1.abastecerVeiculoPorValor(5)
-bomba1.__str__()
+
 
 print(' ')
 print('BOMBA2')
@@ -97,7 +97,7 @@ print('BOMBA2')
 bomba2 = BombaGasolina(2, 12, 500, 100, 'gasolina aditivada' )
 bomba2.abastecerVeiculoPorValor(24)
 bomba2.abastecerVeiculoPorLitro(98)
-bomba2.__str__()
+
 
 print(' ')
 print('BOMBA3')
@@ -109,7 +109,6 @@ bomba3.abastecerVeiculoPorValor(100)
 bomba3.valor_faturado
 bomba3.valor_litro = 8.99
 bomba3.abastecerVeiculoPorValor(9)
-bomba3.__str__()
 
 print(' ')
 print('BOMBA4')
@@ -118,7 +117,19 @@ bomba4 = BombaGasolina(4, 7.80, 500, 700, 'diesel')
 bomba4.quantidade_disponivel
 bomba4.abastecerVeiculoPorValor(100)
 bomba4.abastecerVeiculoPorLitro(40)
+print(' ')
+print('BOMBA1')
+bomba1.__str__()
+print(' ')
+print('BOMBA2')
+bomba2.__str__()
+print(' ')
+print('BOMBA3')
+bomba3.__str__()
+print(' ')
+print('BOMBA4')
 bomba4.__str__()
+
 
 print('')
 print(f'VALOR FINAL FATURADO DAS 4 BOMBAS ==> R${bomba1.valor_faturado + bomba2.valor_faturado + bomba3.valor_faturado + bomba4.valor_faturado},00')
