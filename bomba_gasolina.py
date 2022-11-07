@@ -41,8 +41,11 @@ class BombaGasolina:
 
   @valor_litro.setter
   def valor_litro(self, valor):
-    self.__valor_litro = valor
-    print(f'O nome valor do Litro de {self.__id_bomba} é R${self.__valor_litro}.')
+    if valor > 0:
+      self.__valor_litro = valor
+      print(f'O valor do Litro da BOMBA {self.__id_bomba} é R${self.__valor_litro}.')
+    else:
+      print('Digite um valor válido')
 
 
   def abastecer_bomba(self):
@@ -51,7 +54,7 @@ class BombaGasolina:
   
   def abastecerVeiculoPorValor(self, valor):
     if (valor/self.__valor_litro) > self.__quantidade_disponivel:
-      print(f'A bomba não tem combustível suficiente pra abastecer R${valor},00')
+      print(f'A bomba não tem combustível suficiente pra abastecer R${valor}')
     else:
       self.__quantidade_disponivel = (self.__quantidade_disponivel - (valor/self.__valor_litro))
       self.__quantidade_vendida += (valor/self.__valor_litro)
@@ -71,7 +74,7 @@ class BombaGasolina:
     
 
   def __str__(self):
-    print(f'QUANTIDADE DISPONÍVEL ==> {self.__quantidade_disponivel} Litros\nQUANTIDADE DE LITROS VENDIDOS ==> {self.quantidade_vendida} Litros\nVALOR FATURADO ==> R${self.__valor_faturado},00')
+    print(f'QUANTIDADE DISPONÍVEL ==> {self.__quantidade_disponivel} Litros\nQUANTIDADE DE LITROS VENDIDOS ==> {self.quantidade_vendida} Litros\nVALOR FATURADO ==> R${self.__valor_faturado}')
 
 
 print('BOMBA1')
@@ -87,8 +90,9 @@ bomba1.abastecerVeiculoPorLitro(500)
 bomba1.abastecerVeiculoPorLitro(250)
 bomba1.abastecerVeiculoPorLitro(30)
 bomba1.abastecerVeiculoPorValor(130)
-bomba1.valor_litro = 10
+bomba1.valor_litro = 6.78
 bomba1.abastecerVeiculoPorValor(5)
+bomba1.valor_litro
 
 
 print(' ')
@@ -132,4 +136,4 @@ bomba4.__str__()
 
 
 print('')
-print(f'VALOR FINAL FATURADO DAS 4 BOMBAS ==> R${bomba1.valor_faturado + bomba2.valor_faturado + bomba3.valor_faturado + bomba4.valor_faturado},00')
+print(f'VALOR FINAL FATURADO DAS 4 BOMBAS ==> R${bomba1.valor_faturado + bomba2.valor_faturado + bomba3.valor_faturado + bomba4.valor_faturado:.2f}')
